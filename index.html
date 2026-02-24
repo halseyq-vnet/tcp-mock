@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>How-To Geek Deals</title>
+        <link rel="stylesheet" href="css/home.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    </head>
+    <body>
+        <main>
+            <!-- Hero -->
+            <section class="hero">
+                <div class="hero-animated-bg"></div>
+                <div class="hero-depth">
+                    <div class="hero-depth-orb hero-depth-orb-warm"></div>
+                    <div class="hero-depth-orb hero-depth-orb-cool"></div>
+                </div>
+                <div class="hero-glow"></div>
+                <div class="hero-glow-secondary"></div>
+                <div class="hero-grid-wrap" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 800 400">
+                        <defs>
+                            <pattern id="hero-grid" x="0" y="0" width="64" height="64" patternUnits="userSpaceOnUse">
+                                <path d="M 64 0 L 0 0 0 64" fill="none" stroke="currentColor" stroke-width="0.4" />
+                            </pattern>
+                            <pattern id="hero-subgrid" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                                <path d="M 16 0 L 0 0 0 16" fill="none" stroke="currentColor" stroke-width="0.15" />
+                            </pattern>
+                            <radialGradient id="hero-grid-fade" cx="45%" cy="50%" r="55%">
+                                <stop offset="0%" stop-color="white" stop-opacity="1" />
+                                <stop offset="70%" stop-color="white" stop-opacity="0.4" />
+                                <stop offset="100%" stop-color="white" stop-opacity="0" />
+                            </radialGradient>
+                            <mask id="hero-grid-mask">
+                                <rect width="100%" height="100%" fill="url(#hero-grid-fade)" />
+                            </mask>
+                        </defs>
+                        <g mask="url(#hero-grid-mask)">
+                            <rect width="100%" height="100%" fill="url(#hero-subgrid)" />
+                            <rect width="100%" height="100%" fill="url(#hero-grid)" />
+                            <g stroke="currentColor" fill="none" stroke-width="0.6" stroke-linecap="round">
+                                <path d="M 0 45 H 90 V 85 H 140" />
+                                <circle cx="140" cy="85" r="2" fill="currentColor" fill-opacity="0.35" />
+                                <path d="M 0 130 H 50 V 100 H 110" />
+                                <circle cx="110" cy="100" r="1.5" fill="currentColor" fill-opacity="0.25" />
+                                <path d="M 100% 55 H 88% V 95" />
+                                <circle cx="88%" cy="95" r="2" fill="currentColor" fill-opacity="0.35" />
+                                <path d="M 100% 135 H 92% V 110 H 84%" />
+                                <circle cx="84%" cy="110" r="1.5" fill="currentColor" fill-opacity="0.25" />
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+                <div class="hero-vignette"></div>
+                <div class="hero-lines" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                        <line x1="0" y1="18%" x2="22%" y2="8%" stroke="currentColor" stroke-width="1" opacity="0.06" />
+                        <line x1="78%" y1="5%" x2="95%" y2="12%" stroke="hsl(16, 85%, 55%)" stroke-width="1" opacity="0.08" />
+                        <line x1="3%" y1="85%" x2="30%" y2="95%" stroke="currentColor" stroke-width="1" opacity="0.05" />
+                        <line x1="82%" y1="88%" x2="100%" y2="78%" stroke="hsl(16, 85%, 55%)" stroke-width="1" opacity="0.07" />
+                        <line x1="0" y1="55%" x2="8%" y2="52%" stroke="currentColor" stroke-width="1" opacity="0.04" />
+                        <line x1="92%" y1="45%" x2="100%" y2="42%" stroke="hsl(16, 85%, 55%)" stroke-width="1" opacity="0.06" />
+                    </svg>
+                </div>
+                <div class="hero-noise"></div>
+                <div class="hero-particles" aria-hidden="true">
+                    <span style="left: 8%; top: 12%; width: 2px; height: 2px; opacity: 0.12; animation: hero-particle-drift 28s linear infinite; animation-delay: -5s"></span>
+                    <span style="left: 92%; top: 18%; width: 2.5px; height: 2.5px; opacity: 0.1; animation: hero-particle-drift 32s linear infinite; animation-delay: -12s"></span>
+                    <span style="left: 15%; top: 75%; width: 1.5px; height: 1.5px; opacity: 0.09; animation: hero-particle-drift 35s linear infinite; animation-delay: -20s"></span>
+                    <span style="left: 85%; top: 82%; width: 2px; height: 2px; opacity: 0.11; animation: hero-particle-drift 30s linear infinite; animation-delay: -8s"></span>
+                    <span style="left: 5%; top: 45%; width: 2px; height: 2px; opacity: 0.08; animation: hero-particle-drift 40s linear infinite; animation-delay: -25s"></span>
+                    <span style="left: 95%; top: 55%; width: 1.5px; height: 1.5px; opacity: 0.1; animation: hero-particle-drift 26s linear infinite; animation-delay: -15s"></span>
+                    <span style="left: 22%; top: 8%; width: 2px; height: 2px; opacity: 0.14; animation: hero-particle-drift 38s linear infinite; animation-delay: -30s"></span>
+                    <span style="left: 78%; top: 25%; width: 2.5px; height: 2.5px; opacity: 0.09; animation: hero-particle-drift 29s linear infinite; animation-delay: -3s"></span>
+                    <span style="left: 12%; top: 88%; width: 1.5px; height: 1.5px; opacity: 0.11; animation: hero-particle-drift 33s linear infinite; animation-delay: -18s"></span>
+                    <span style="left: 88%; top: 72%; width: 2px; height: 2px; opacity: 0.1; animation: hero-particle-drift 27s linear infinite; animation-delay: -22s"></span>
+                    <span style="left: 35%; top: 15%; width: 2px; height: 2px; opacity: 0.07; animation: hero-particle-drift 42s linear infinite; animation-delay: -10s"></span>
+                    <span style="left: 65%; top: 92%; width: 2.5px; height: 2.5px; opacity: 0.12; animation: hero-particle-drift 31s linear infinite; animation-delay: -28s"></span>
+                    <span style="left: 48%; top: 5%; width: 1.5px; height: 1.5px; opacity: 0.08; animation: hero-particle-drift 36s linear infinite; animation-delay: -7s"></span>
+                    <span style="left: 52%; top: 96%; width: 2px; height: 2px; opacity: 0.09; animation: hero-particle-drift 34s linear infinite; animation-delay: -14s"></span>
+                    <span style="left: 28%; top: 62%; width: 2px; height: 2px; opacity: 0.11; animation: hero-particle-drift 39s linear infinite; animation-delay: -24s"></span>
+                    <span style="left: 72%; top: 38%; width: 1.5px; height: 1.5px; opacity: 0.1; animation: hero-particle-drift 25s linear infinite; animation-delay: -19s"></span>
+                    <span style="left: 8%; top: 32%; width: 2.5px; height: 2.5px; opacity: 0.13; animation: hero-particle-drift 37s linear infinite; animation-delay: -11s"></span>
+                    <span style="left: 94%; top: 68%; width: 2px; height: 2px; opacity: 0.09; animation: hero-particle-drift 41s linear infinite; animation-delay: -26s"></span>
+                    <span style="left: 42%; top: 78%; width: 1.5px; height: 1.5px; opacity: 0.1; animation: hero-particle-drift 28s linear infinite; animation-delay: -2s"></span>
+                    <span style="left: 58%; top: 22%; width: 2px; height: 2px; opacity: 0.12; animation: hero-particle-drift 30s linear infinite; animation-delay: -16s"></span>
+                </div>
+                <div class="hero-sweep"></div>
+
+                <div class="container hero-content">
+                    <div class="hero-headline-wrap">
+                        <p class="hero-eyebrow">How-To Geek Deals Center</p>
+                        <h1 class="hero-title">Smart Tech. <span class="text-primary">Smart Pricing.</span></h1>
+                    </div>
+                    <div class="hero-featured">
+                        <div class="ltd-header">
+                            <h2 class="ltd-title">Featured <span class="text-primary">This Month</span></h2>
+                            <div class="ltd-underline"></div>
+                        </div>
+                        <div class="hero-cards-layout">
+                            <div class="hero-featured-image" aria-hidden="true">
+                                <img src="assets/horizon-20-projector.png" alt="" />
+                                <div class="hero-featured-overlay">
+                                    <p class="hero-featured-brand">XGIMI</p>
+                                    <h3 class="hero-featured-title">RGB Triple Laser Gaming Projector</h3>
+                                </div>
+                            </div>
+                            <div class="hero-cards">
+                            <!-- XGIMI (projector) – first so it is the single-card example -->
+                            <div class="flip-card flip-card--see-more">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <div class="flip-card-image">
+                                            <img src="assets/horizon-20-projector.png" alt="XGIMI Horizon 20 Projector" />
+                                        </div>
+                                        <div class="flip-card-body">
+                                            <p class="flip-card-brand">XGIMI</p>
+                                            <h3>RGB Triple Laser Gaming Projector</h3>
+                                            <p class="flip-card-desc">The XGIMI Horizon 20 delivers a 300-inch screen with RGB triple laser, 240Hz refresh rate, 1ms input lag, and 3,200 ISO lumens.</p>
+                                        </div>
+                                        <button type="button" class="flip-card-see-more" aria-label="See more">See more
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+                                        </button>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <h3>Horizon 20 Projector</h3>
+                                        <p class="flip-card-meta">Cinema Without Limits</p>
+                                        <ul>
+                                            <li>3,200 ISO Lumens, up to 300&quot; screen</li>
+                                            <li>240Hz, 1ms input lag</li>
+                                            <li>IMAX Enhanced, Dolby Vision, HDR10+</li>
+                                        </ul>
+                                        <div class="flip-card-price">
+                                            <span class="current">$1,699</span>
+                                            <span class="original">$1,999</span>
+                                        </div>
+                                        <a href="xgimi.html" class="cta-glass tcp-btn"
+                                            >Explore Deal
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M5 12h14" />
+                                                <path d="m12 5 7 7-7 7" /></svg
+                                        ></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Samsung -->
+                            <div class="flip-card flip-card--see-more">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <div class="flip-card-image">
+                                            <img src="assets/samsung-neo-qled.png" alt="Samsung Neo QLED 8K QN900D" />
+                                        </div>
+                                        <div class="flip-card-body">
+                                            <p class="flip-card-brand">Samsung</p>
+                                            <h3>Next-Gen Display Technology</h3>
+                                            <p class="flip-card-desc">The Samsung Neo QLED 8K QN900D delivers jaw-dropping 8K resolution with AI-powered upscaling, Quantum Matrix Technology Pro, and an ultra-slim Infinity Screen design.</p>
+                                        </div>
+                                        <button type="button" class="flip-card-see-more" aria-label="See more">See more
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+                                        </button>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <h3>Samsung Neo QLED 8K QN900D</h3>
+                                        <p class="flip-card-meta">8K Has Never Looked This Good</p>
+                                        <ul>
+                                            <li>8K resolution with AI upscaling</li>
+                                            <li>Quantum Matrix Pro with Mini LEDs</li>
+                                            <li>Dolby Atmos &amp; Object Tracking Sound</li>
+                                        </ul>
+                                        <div class="flip-card-price">
+                                            <span class="current">$4,999</span>
+                                            <span class="original">$5,999</span>
+                                        </div>
+                                        <a href="samsung.html" class="cta-glass tcp-btn"
+                                            >Explore Deal
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M5 12h14" />
+                                                <path d="m12 5 7 7-7 7" /></svg
+                                        ></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Synology -->
+                            <div class="flip-card flip-card--see-more">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <div class="flip-card-image">
+                                            <img src="assets/synology-ds225.png" alt="Synology DiskStation DS225+" />
+                                        </div>
+                                        <div class="flip-card-body">
+                                            <p class="flip-card-brand">Synology</p>
+                                            <h3>Compact NAS for Home &amp; Edge</h3>
+                                            <p class="flip-card-desc">The DS225+ is a compact 2-bay NAS designed to centralize data management for homes, home offices, and edge storage. Powered by Intel Celeron J4125.</p>
+                                        </div>
+                                        <button type="button" class="flip-card-see-more" aria-label="See more">See more
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+                                        </button>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <h3>DiskStation DS225+</h3>
+                                        <p class="flip-card-meta">Your Data, Your Cloud</p>
+                                        <ul>
+                                            <li>Intel Celeron J4125, 2GB RAM</li>
+                                            <li>2-bay SATA + 2.5GbE LAN</li>
+                                            <li>M.2 NVMe cache, 3-year warranty</li>
+                                        </ul>
+                                        <div class="flip-card-price">
+                                            <span class="current">$499.99</span>
+                                            <span class="original">$599.99</span>
+                                        </div>
+                                        <a href="synology.html" class="cta-glass tcp-btn"
+                                            >Explore Deal
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M5 12h14" />
+                                                <path d="m12 5 7 7-7 7" /></svg
+                                        ></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Bambu Lab -->
+                            <div class="flip-card flip-card--see-more">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <div class="flip-card-image">
+                                            <img src="assets/bambu-lab-ams2.png" alt="Bambu Lab X1-Carbon Combo" />
+                                        </div>
+                                        <div class="flip-card-body">
+                                            <p class="flip-card-brand">Bambu Lab</p>
+                                            <h3>Next-Gen 3D Printing</h3>
+                                            <p class="flip-card-desc flip-card-desc--4-lines">The X1-Carbon Combo delivers blazing-fast CoreXY printing with the AMS 2 multi-material system. LiDAR-based calibration, AI failure detection, hardened steel nozzle.</p>
+                                        </div>
+                                        <button type="button" class="flip-card-see-more" aria-label="See more">See more
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+                                        </button>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <h3>X1-Carbon Combo</h3>
+                                        <p class="flip-card-meta">Speed Meets Precision</p>
+                                        <ul>
+                                            <li>CoreXY up to 500mm/s</li>
+                                            <li>AMS 2 multi-material (up to 16 colors)</li>
+                                            <li>LiDAR calibration, AI failure detection</li>
+                                        </ul>
+                                        <div class="flip-card-price">
+                                            <span class="current">$1,449</span>
+                                            <span class="original">$1,599</span>
+                                        </div>
+                                        <a href="bambu-lab.html" class="cta-glass tcp-btn"
+                                            >Explore Deal
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M5 12h14" />
+                                                <path d="m12 5 7 7-7 7" /></svg
+                                        ></a>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-fade"></div>
+            </section>
+
+            <!-- Subscriber strip -->
+            <div class="container">
+                <div class="subscriber-strip">
+                    <div class="subscriber-strip-inner tcp-box tcp-subscriber-wrapper">
+                        <div class="subscriber-strip-label">
+                            <svg class="tcp-subscriber-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <rect width="20" height="16" x="2" y="4" rx="2" />
+                                <path d="M2 6l10 8 10-8" />
+                            </svg>
+                            <p>Get deals first</p>
+                            <span class="subscriber-strip-desc">— exclusive offers &amp; weekly highlights, straight to your inbox.</span>
+                        </div>
+                        <form class="subscriber-strip-form" action="#" method="get">
+                            <input type="email" name="email" class="subscriber-strip-input tcp-subscriber-input" placeholder="Email Address" required />
+                            <button type="submit" class="subscriber-strip-btn tcp-subscriber-btn tcp-btn">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Limited time deals -->
+            <section class="ltd-section">
+                <div class="container">
+                    <div class="ltd-header">
+                        <h2 class="ltd-title">Featured <span class="text-primary">Offers</span></h2>
+                        <div class="ltd-underline"></div>
+                        <p class="ltd-sub">Editor-curated offers, updated weekly</p>
+                    </div>
+
+                    <div class="ltd-grid">
+                        <a href="https://cellulardata.ubigi.com/special-offer-makeuseof/" target="_blank" rel="noopener noreferrer" class="offer-card">
+                            <div class="offer-card-accent"></div>
+                            <span class="offer-card-tag exclusive">Exclusive HTG Offer</span>
+                            <div class="offer-card-inner">
+                                <div class="offer-card-logo-wrap">
+                                    <div class="offer-card-logo-bg" style="background: hsl(173 80% 40% / 0.06)"></div>
+                                    <div class="offer-card-logo"><img src="assets/ubigi-logo.png" alt="Ubigi" /></div>
+                                </div>
+                                <div class="offer-card-text">
+                                    <h3>Ubigi eSIM</h3>
+                                    <p class="offer-card-callout">Exclusive Reader Offer — Free sign up, gifts on login</p>
+                                    <div class="offer-card-perks">
+                                        <span class="offer-card-perk">500MB FREE DATA</span>
+                                        <span class="offer-card-perk">10% OFF 1st purchase</span>
+                                    </div>
+                                </div>
+                                <span class="offer-card-cta tcp-btn"
+                                    >Claim Offer
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 12h14" />
+                                        <path d="m12 5 7 7-7 7" /></svg
+                                ></span>
+                            </div>
+                        </a>
+
+                        <a href="https://surfshark.com" target="_blank" rel="noopener noreferrer" class="offer-card">
+                            <div class="offer-card-accent"></div>
+                            <span class="offer-card-tag exclusive">Exclusive HTG Offer</span>
+                            <div class="offer-card-inner">
+                                <div class="offer-card-logo-wrap">
+                                    <div class="offer-card-logo-bg" style="background: hsl(173 80% 40% / 0.06)"></div>
+                                    <div class="offer-card-logo"><img src="assets/surfshark-logo.png" alt="Surfshark" /></div>
+                                </div>
+                                <div class="offer-card-text">
+                                    <h3>Surfshark VPN</h3>
+                                    <p class="offer-card-callout">30-Day Trial — No credit card required, cancel anytime</p>
+                                    <div class="offer-card-perks">
+                                        <span class="offer-card-perk">30-Day FREE Trial</span>
+                                        <span class="offer-card-perk">Up to 500GB Data</span>
+                                    </div>
+                                </div>
+                                <span class="offer-card-cta tcp-btn"
+                                    >Claim Offer
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 12h14" />
+                                        <path d="m12 5 7 7-7 7" /></svg
+                                ></span>
+                            </div>
+                        </a>
+
+                        <a href="#" class="offer-card">
+                            <div class="offer-card-accent"></div>
+                            <span class="offer-card-tag hot">Hot Deal</span>
+                            <div class="offer-card-inner">
+                                <div class="offer-card-logo-wrap">
+                                    <div class="offer-card-logo-bg"></div>
+                                    <div class="offer-card-logo"><img src="assets/apple-logo.svg" alt="Apple" /></div>
+                                </div>
+                                <div class="offer-card-text">
+                                    <h3>Apple iPhone 15 Pro</h3>
+                                    <p class="offer-card-callout">Titanium design, A17 Pro chip, USB-C</p>
+                                    <div class="offer-card-perks">
+                                        <span class="offer-card-perk">Save 8%</span>
+                                        <span class="offer-card-perk">Was $1,200</span>
+                                    </div>
+                                </div>
+                                <span class="offer-card-cta tcp-btn"
+                                    >View Deal
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 12h14" />
+                                        <path d="m12 5 7 7-7 7" /></svg
+                                ></span>
+                            </div>
+                        </a>
+
+                        <a href="#" class="offer-card">
+                            <div class="offer-card-accent"></div>
+                            <span class="offer-card-tag limited">Limited Stock</span>
+                            <div class="offer-card-inner">
+                                <div class="offer-card-logo-wrap">
+                                    <div class="offer-card-logo-bg"></div>
+                                    <div class="offer-card-logo"><img src="assets/google-logo.svg" alt="Google" /></div>
+                                </div>
+                                <div class="offer-card-text">
+                                    <h3>Google Pixel 8 Pro</h3>
+                                    <p class="offer-card-callout">Best-in-class photography with clean Android</p>
+                                    <div class="offer-card-perks">
+                                        <span class="offer-card-perk">Save 15%</span>
+                                        <span class="offer-card-perk">Was $1,000</span>
+                                    </div>
+                                </div>
+                                <span class="offer-card-cta tcp-btn"
+                                    >View Deal
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 12h14" />
+                                        <path d="m12 5 7 7-7 7" /></svg
+                                ></span>
+                            </div>
+                        </a>
+
+                        <a href="#" class="offer-card">
+                            <div class="offer-card-accent"></div>
+                            <span class="offer-card-tag exclusive">Editor's Pick</span>
+                            <div class="offer-card-inner">
+                                <div class="offer-card-logo-wrap">
+                                    <div class="offer-card-logo-bg"></div>
+                                    <div class="offer-card-logo"><img src="https://logos-world.net/wp-content/uploads/2020/04/Sony-Logo.png" alt="Sony" /></div>
+                                </div>
+                                <div class="offer-card-text">
+                                    <h3>Sony WH-1000XM5</h3>
+                                    <p class="offer-card-callout">Industry-leading noise canceling, 30hr battery</p>
+                                    <div class="offer-card-perks">
+                                        <span class="offer-card-perk">Save 12%</span>
+                                        <span class="offer-card-perk">Was $399</span>
+                                    </div>
+                                </div>
+                                <span class="offer-card-cta tcp-btn"
+                                    >View Deal
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 12h14" />
+                                        <path d="m12 5 7 7-7 7" /></svg
+                                ></span>
+                            </div>
+                        </a>
+
+                        <a href="#" class="offer-card">
+                            <div class="offer-card-accent"></div>
+                            <span class="offer-card-tag limited">Limited Stock</span>
+                            <div class="offer-card-inner">
+                                <div class="offer-card-logo-wrap">
+                                    <div class="offer-card-logo-bg"></div>
+                                    <div class="offer-card-logo"><img src="https://wallpapercave.com/wp/wp2500919.png" alt="Samsung" /></div>
+                                </div>
+                                <div class="offer-card-text">
+                                    <h3>Samsung T7 Portable SSD</h3>
+                                    <p class="offer-card-callout">1TB USB 3.2, up to 1,050 MB/s, compact</p>
+                                    <div class="offer-card-perks">
+                                        <span class="offer-card-perk">Save 18%</span>
+                                        <span class="offer-card-perk">Was $139</span>
+                                    </div>
+                                </div>
+                                <span class="offer-card-cta tcp-btn"
+                                    >View Deal
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 12h14" />
+                                        <path d="m12 5 7 7-7 7" /></svg
+                                ></span>
+                            </div>
+                        </a>
+
+                        <a href="https://shop.howtogeek.com" target="_blank" rel="noopener noreferrer" class="ltd-more-card ltd-more-card--span">
+                            <span class="ltd-more-accent" aria-hidden="true"></span>
+                            <span class="ltd-more-inner">
+                                <span class="ltd-more-label">Looking for more?</span>
+                                <span class="ltd-more-cta">
+                                    Visit the HTG Depot
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                        <polyline points="15 3 21 3 21 9" />
+                                        <line x1="10" x2="21" y1="14" y2="3" />
+                                    </svg>
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <!-- Category grid -->
+            <section class="categories-section">
+                <div class="container">
+                    <div class="ltd-header">
+                        <h2 class="ltd-title">Shop by <span class="text-primary">Category</span></h2>
+                        <div class="ltd-underline"></div>
+                    </div>
+                    <div class="categories-wrap">
+                        <div class="categories-grid">
+                            <a href="#" class="category-tile">
+                                <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&h=600&fit=crop" alt="3D Printing" />
+                                <div class="category-tile-overlay"></div>
+                                <div class="category-tile-label"><h3>3D Printing</h3></div>
+                            </a>
+                            <a href="#" class="category-tile">
+                                <img src="https://images.unsplash.com/photo-1625772452859-1c03d5bf1137?w=600&h=600&fit=crop" alt="Accessories" />
+                                <div class="category-tile-overlay"></div>
+                                <div class="category-tile-label"><h3>Accessories</h3></div>
+                            </a>
+                            <a href="#" class="category-tile">
+                                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&h=600&fit=crop" alt="Audio" />
+                                <div class="category-tile-overlay"></div>
+                                <div class="category-tile-label"><h3>Audio</h3></div>
+                            </a>
+                            <a href="#" class="category-tile">
+                                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=600&fit=crop" alt="NAS & Storage" />
+                                <div class="category-tile-overlay"></div>
+                                <div class="category-tile-label"><h3>NAS &amp; Storage</h3></div>
+                            </a>
+                            <a href="#" class="category-tile">
+                                <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&h=600&fit=crop" alt="Networking" />
+                                <div class="category-tile-overlay"></div>
+                                <div class="category-tile-label"><h3>Networking</h3></div>
+                            </a>
+                            <a href="#" class="category-tile">
+                                <img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=600&h=600&fit=crop" alt="PC Components" />
+                                <div class="category-tile-overlay"></div>
+                                <div class="category-tile-label"><h3>PC Components</h3></div>
+                            </a>
+                            <a href="#" class="category-tile">
+                                <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&h=600&fit=crop" alt="Phones" />
+                                <div class="category-tile-overlay"></div>
+                                <div class="category-tile-label"><h3>Phones</h3></div>
+                            </a>
+                            <a href="#" class="category-tile category-tile__coming-soon">
+                                <img src="https://images.unsplash.com/photo-1629904853893-c2c8981a1dc5?w=600&h=600&fit=crop" alt="Single-Board Computers" />
+                                <div class="category-tile-overlay"></div>
+                                <span class="category-tile-badge">Coming Soon</span>
+                                <div class="category-tile-label"><h3>Single-Board Computers</h3></div>
+                            </a>
+                            <a href="#" class="category-tile">
+                                <img src="https://images.unsplash.com/photo-1558002038-1055907df827?w=600&h=600&fit=crop" alt="Smart Home" />
+                                <div class="category-tile-overlay"></div>
+                                <div class="category-tile-label"><h3>Smart Home</h3></div>
+                            </a>
+                            <div class="category-tile category-tile__coming-soon" aria-disabled="true">
+                                <img src="https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=600&h=600&fit=crop" alt="Wearables" />
+                                <div class="category-tile-overlay"></div>
+                                <span class="category-tile-badge">Coming Soon</span>
+                                <div class="category-tile-label">
+                                    <h3>Wearables</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Bottom CTAs: Subscriber full width -->
+            <section class="bottom-ctas">
+                <div class="container">
+                    <div class="bottom-ctas-cell bottom-ctas-subscriber">
+                        <div class="subscriber-box tcp-box tcp-subscriber-wrapper">
+                            <span class="subscriber-box-glow subscriber-box-glow--t" aria-hidden="true"></span>
+                            <span class="subscriber-box-glow subscriber-box-glow--b" aria-hidden="true"></span>
+                            <div class="subscriber-box-content">
+                                <div class="subscriber-box-copy">
+                                    <h2 class="subscriber-box-title">
+                                        <svg class="tcp-subscriber-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <rect width="20" height="16" x="2" y="4" rx="2" />
+                                            <path d="M2 6l10 8 10-8" />
+                                        </svg>
+                                        Get the Best Tech Deals First
+                                    </h2>
+                                    <div class="subscriber-box-desc">Be the first to access exclusive offers, limited-time pricing, and curated weekly highlights — delivered straight to your inbox.</div>
+                                </div>
+                                <div class="subscriber-box-form-wrap">
+                                    <form class="subscriber-box-form" action="#" method="get">
+                                        <input type="email" name="email" class="subscriber-box-input tcp-subscriber-input" placeholder="Email Address" required />
+                                        <button type="submit" class="subscriber-box-btn tcp-subscriber-btn tcp-btn">Subscribe</button>
+                                    </form>
+                                    <p class="subscriber-box-note">By subscribing, you agree to receive newsletter and marketing emails. You can <a href="#">unsubscribe anytime</a>.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Page disclaimer -->
+            <section class="page-disclaimer">
+                <div class="container">
+                    <p class="page-disclaimer-text">Some links on this page are affiliate links, which means we may earn a commission if you choose to make a purchase. Deals are independently selected by our commerce team based on relevance, value, and reader interest.</p>
+                </div>
+            </section>
+        </main>
+        <script>
+            (function () {
+                document.querySelectorAll('.flip-card--see-more').forEach(function (card) {
+                    var seeMore = card.querySelector('.flip-card-see-more');
+                    var back = card.querySelector('.flip-card-back');
+                    if (seeMore) {
+                        seeMore.addEventListener('click', function (e) {
+                            e.preventDefault();
+                            card.classList.toggle('flip-card--flipped');
+                        });
+                    }
+                    if (back) {
+                        back.addEventListener('click', function (e) {
+                            if (e.target.closest('a.cta-glass')) return;
+                            card.classList.remove('flip-card--flipped');
+                        });
+                    }
+                });
+
+                // Dev/QA: right-click anywhere to open demo menu (1 / 2 / 3 / 4 product layouts)
+                var hero = document.querySelector('.hero');
+                var heroCards = document.querySelector('.hero-cards');
+                if (!hero || !heroCards) return;
+                var cards = Array.prototype.slice.call(heroCards.querySelectorAll('.flip-card'));
+                if (cards.length === 0) return;
+
+                var currentCount = cards.length;
+                var menuEl = null;
+
+                function setProductCount(n) {
+                    n = Math.max(1, Math.min(4, n));
+                    currentCount = n;
+                    while (heroCards.lastChild) heroCards.removeChild(heroCards.lastChild);
+                    for (var i = 0; i < n && i < cards.length; i++) heroCards.appendChild(cards[i]);
+                    if (menuEl) {
+                        menuEl.querySelectorAll('.hero-qa-menu__item[data-count]').forEach(function (item, idx) {
+                            item.classList.toggle('is-active', parseInt(item.getAttribute('data-count'), 10) === n);
+                        });
+                    }
+                }
+
+                function showMenu(x, y) {
+                    if (menuEl) menuEl.remove();
+                    menuEl = document.createElement('div');
+                    menuEl.className = 'hero-qa-menu';
+                    menuEl.setAttribute('role', 'menu');
+                    menuEl.innerHTML = '<div class="hero-qa-menu__title">Demo layout</div>' +
+                        [1, 2, 3, 4].map(function (c) {
+                            var label = c === 1 ? '1 product' : c + ' products';
+                            var active = currentCount === c ? ' is-active' : '';
+                            return '<button type="button" class="hero-qa-menu__item' + active + '" data-count="' + c + '" role="menuitem">' + label + '</button>';
+                        }).join('');
+                    var w = 168;
+                    var h = 120;
+                    menuEl.style.left = Math.min(x, window.innerWidth - w - 8) + 'px';
+                    menuEl.style.top = Math.min(y, window.innerHeight - h - 8) + 'px';
+                    document.body.appendChild(menuEl);
+
+                    menuEl.querySelectorAll('.hero-qa-menu__item[data-count]').forEach(function (btn) {
+                        btn.addEventListener('click', function () {
+                            setProductCount(parseInt(btn.getAttribute('data-count'), 10));
+                            closeMenu();
+                        });
+                    });
+
+                    requestAnimationFrame(function () {
+                        document.addEventListener('click', closeMenu, { once: true });
+                    });
+                }
+
+                function closeMenu() {
+                    if (menuEl) {
+                        menuEl.remove();
+                        menuEl = null;
+                    }
+                }
+
+                document.addEventListener('contextmenu', function (e) {
+                    e.preventDefault();
+                    showMenu(e.clientX, e.clientY);
+                }, true);
+            })();
+        </script>
+    </body>
+</html>

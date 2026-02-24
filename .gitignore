@@ -1,0 +1,25 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+*.local
+
+# Editor / IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Dependencies (if you add npm later)
+node_modules/
+
+# Build / output
+dist/
+build/
+*.log
+.cache/
+
+# Misc
+Thumbs.db
+*.bak
