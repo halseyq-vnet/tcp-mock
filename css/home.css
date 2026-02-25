@@ -722,17 +722,14 @@ body {
     display: contents;
 }
 
-/* Hide only image, front brand/h3, see-more, and back meta/price. Show: back h3 (product name), front desc, back ul, CTA */
+/* Hide only image (and overlay), see-more, and back meta. Show: back h3, back ul. Footer (price + CTA) always visible. */
 .hero-cards-layout:has(.flip-card:only-child) .flip-card:only-child .flip-card-image,
-.hero-cards-layout:has(.flip-card:only-child) .flip-card:only-child .flip-card-brand,
-.hero-cards-layout:has(.flip-card:only-child) .flip-card:only-child .flip-card-body h3,
 .hero-cards-layout:has(.flip-card:only-child) .flip-card:only-child .flip-card-see-more,
-.hero-cards-layout:has(.flip-card:only-child) .flip-card:only-child .flip-card-meta,
-.hero-cards-layout:has(.flip-card:only-child) .flip-card:only-child .flip-card-price {
+.hero-cards-layout:has(.flip-card:only-child) .flip-card:only-child .flip-card-meta {
     display: none;
 }
 
-/* Order right panel: product name (1), description (2), bulleted list (3), CTA (4) */
+/* Order right panel: product name (1), bulleted list (2) */
 .hero-cards-layout:has(.flip-card:only-child) .flip-card:only-child .flip-card-inner {
     display: flex;
     flex-direction: column;
@@ -754,17 +751,9 @@ body {
     color: hsl(var(--foreground));
 }
 
-.hero-cards-layout:has(.flip-card:only-child) .flip-card:only-child .flip-card-front .flip-card-body {
-    display: block;
-    order: 2;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-}
-
 .hero-cards-layout:has(.flip-card:only-child) .flip-card:only-child .flip-card-back ul {
     display: block;
-    order: 3;
+    order: 2;
     margin: 0;
     padding-left: 1.25rem;
     font-size: 0.875rem;
@@ -773,18 +762,8 @@ body {
 }
 
 .hero-cards-layout:has(.flip-card:only-child) .flip-card:only-child .flip-card-back .cta-glass {
-    order: 4;
+    order: 3;
     margin-top: 0;
-}
-
-.hero-cards-layout:has(.flip-card:only-child) .flip-card:only-child .flip-card-desc {
-    -webkit-line-clamp: unset;
-    overflow: visible;
-    max-height: none;
-    margin: 0;
-    font-size: 0.9375rem;
-    line-height: 1.5;
-    color: hsl(var(--card-body));
 }
 
 @media (min-width: 480px) {
@@ -860,15 +839,33 @@ body {
     min-width: 0;
 }
 
-/* Flip card */
+/* Flip card: column layout so footer (price + CTA) stays at bottom; height fits longest back */
 .flip-card {
     perspective: 1000px;
-    min-height: 360px;
-    height: 420px;
+    /* TODO: dynamically calculate min-height based on the content */
+    min-height: 390px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--radius-card);
+    border: 1px solid hsl(25 85% 55% / 0.15);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    background: linear-gradient(to bottom, hsl(0 0% 100% / 0.05), hsl(0 0% 100% / 0.02));
+}
+
+/* Only the top section flips; footer is always visible */
+.flip-card-top {
+    flex: 1;
+    min-height: 0;
+    position: relative;
+    overflow: hidden;
+    perspective: 1000px;
 }
 
 .flip-card-inner {
-    position: relative;
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     transition: transform 0.7s;
@@ -879,95 +876,48 @@ body {
     transform: rotateY(180deg);
 }
 
+/* See-more cards: on touch devices, flip only on click (not hover); on desktop, hover triggers flip */
+@media (hover: none) {
+    .flip-card--see-more:hover .flip-card-inner {
+        transform: none;
+    }
+}
+
 .flip-card-front,
 .flip-card-back {
     position: absolute;
     inset: 0;
     backface-visibility: hidden;
-    border-radius: var(--radius-card);
+    border-radius: var(--radius-card) var(--radius-card) 0 0;
     background: linear-gradient(to bottom, hsl(0 0% 100% / 0.05), hsl(0 0% 100% / 0.02));
     border: 1px solid hsl(25 85% 55% / 0.15);
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
+    border-bottom: none;
+    box-shadow: none;
+    overflow: auto;
     display: flex;
     flex-direction: column;
 }
 
-/* Single featured card: horizontal spotlight layout */
-.hero-cards .flip-card:only-child .flip-card-front {
-    flex-direction: row;
-}
-
-.hero-cards .flip-card:only-child .flip-card-image {
-    flex: 0 0 42%;
-    aspect-ratio: auto;
-    height: 100%;
-    min-height: 0;
-}
-
-.hero-cards .flip-card:only-child .flip-card-body {
-    flex: 1;
-    min-width: 0;
-    justify-content: center;
-}
-
-/* Featured card front: larger, foreground text to match back */
-.hero-cards .flip-card:only-child .flip-card-front,
-.hero-cards .flip-card:only-child .flip-card-front .flip-card-body {
-    color: hsl(var(--foreground));
-}
-.hero-cards .flip-card:only-child .flip-card-body h3 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: hsl(var(--foreground));
-}
-.hero-cards .flip-card:only-child .flip-card-brand {
-    font-size: 0.875rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: hsl(var(--card-body));
-}
-.hero-cards .flip-card:only-child .flip-card-tagline {
-    font-size: 1rem;
-    color: hsl(var(--primary) / 0.9);
-}
-.hero-cards .flip-card:only-child .flip-card-desc {
-    font-size: 1rem;
-    line-height: 1.4;
-    color: hsl(var(--card-body));
-    /* -webkit-line-clamp: 4; */
-    max-height: 5.6em;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    /* overflow: hidden; */
-    text-overflow: ellipsis;
-    min-height: 0;
-    word-break: break-word;
-    overflow-wrap: break-word;
+/* Fixed footer: price + View Deal always visible */
+.flip-card-footer {
+    flex-shrink: 0;
+    padding: 1rem 1.25rem 1.25rem;
+    border-top: 1px solid hsl(0 0% 100% / 0.08);
+    background: hsl(0 0% 0% / 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
 }
 
 .hero-cards .flip-card:only-child {
-    height: 340px;
-    min-height: 340px;
+    height: auto;
+    min-height: 420px;
 }
 
 .hero-cards .flip-card:only-child .flip-card-inner,
 .hero-cards .flip-card:only-child .flip-card-front,
 .hero-cards .flip-card:only-child .flip-card-back {
-    min-height: 340px;
-}
-
-@media (min-width: 640px) {
-    .hero-cards .flip-card:only-child {
-        height: 380px;
-        min-height: 380px;
-    }
-    .hero-cards .flip-card:only-child .flip-card-inner,
-    .hero-cards .flip-card:only-child .flip-card-front,
-    .hero-cards .flip-card:only-child .flip-card-back {
-        min-height: 380px;
-    }
+    min-height: 100%;
 }
 
 .flip-card-back {
@@ -978,8 +928,7 @@ body {
 
 .flip-card-image {
     position: relative;
-    flex-shrink: 0;
-    height: 160px;
+    flex: 1;
     min-height: 160px;
     background: hsl(0 0% 100% / 0.03);
     overflow: hidden;
@@ -990,6 +939,35 @@ body {
     height: 100%;
     object-fit: cover;
     object-position: center;
+    display: block;
+}
+
+/* Brand + title overlay on card image (front) */
+.flip-card-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1rem 1.25rem 1.25rem;
+    background: linear-gradient(to top, hsl(220 30% 4% / 0.95) 0%, hsl(220 25% 6% / 0.7) 35%, transparent 75%);
+    pointer-events: none;
+}
+
+.flip-card-overlay .flip-card-brand {
+    color: hsl(var(--primary) / 0.95);
+    margin: 0 0 0.25rem 0;
+    font-size: 0.75rem;
+}
+
+.flip-card-overlay h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.25;
+    color: white;
+    margin: 0;
+    letter-spacing: -0.01em;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6), 0 0 1px rgba(0, 0, 0, 0.8);
 }
 
 .flip-card-body {
@@ -1069,10 +1047,8 @@ body {
 
 .flip-card--see-more .flip-card-front {
     position: relative;
-}
-
-.flip-card--see-more .flip-card-front .flip-card-body {
-    padding-bottom: 2.5rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .flip-card--see-more .flip-card-front .cta-glass {
@@ -1081,26 +1057,31 @@ body {
 
 .flip-card-see-more {
     position: absolute;
-    bottom: 1rem;
-    right: 1.25rem;
+    top: 0.75rem;
+    right: 1rem;
+    flex-shrink: 0;
+    z-index: 2;
     font-size: 0.8125rem;
     font-weight: 500;
-    color: hsl(var(--primary) / 0.95);
-    background: none;
+    color: var(--foreground);
+    background: hsl(220 25% 6% / 0.35);
     border: none;
-    padding: 0.25rem 0;
+    border-radius: 9999px;
+    padding: 0.4rem 0.75rem;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
-    gap: 0.2em;
+    gap: 0.25em;
     letter-spacing: 0.02em;
     text-decoration: none;
-    transition: color 0.2s ease;
+    transition: background 0.2s ease, color 0.2s ease;
     -webkit-tap-highlight-color: transparent;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
 
 .flip-card-see-more:hover {
-    color: hsl(var(--primary));
+    background: hsl(220 25% 8% / 0.5);
+    color: hsl(16 90% 62%);
 }
 
 .flip-card-see-more:focus-visible {
@@ -1161,17 +1142,27 @@ body {
 }
 
 .flip-card-back .flip-card-meta {
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
     font-size: 0.8125rem;
     color: hsl(var(--card-body));
+}
+
+.flip-card-back .flip-card-desc {
+    font-size: 0.875rem;
+    line-height: 1.45;
+    color: hsl(var(--card-body));
+    margin: 0 0 0.75rem 0;
+    -webkit-line-clamp: unset;
+    overflow: visible;
+    max-height: none;
 }
 
 .flip-card-back ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    flex: 1;
-    overflow: auto;
+    flex: 0 0 auto;
+    overflow: visible;
 }
 
 .flip-card-back li {
@@ -1203,6 +1194,12 @@ body {
     border-top: 1px solid hsl(0 0% 100% / 0.08);
 }
 
+.flip-card-footer .flip-card-price {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+}
+
 .flip-card-price .current {
     font-size: 1.375rem;
     font-weight: 700;
@@ -1228,45 +1225,21 @@ body {
         padding: 0 2px;
     }
     .flip-card {
-        height: 360px;
-        min-height: 360px;
+        height: auto;
+        min-height: 380px;
         max-width: 100%;
     }
     .flip-card-inner,
     .flip-card-front,
     .flip-card-back {
-        min-height: 360px;
+        min-height: 100%;
     }
     .flip-card-image {
-        height: 140px;
         min-height: 140px;
-    }
-    .flip-card-body {
-        padding: 1rem;
-    }
-    .flip-card-body h3 {
-        font-size: 1.125rem;
-    }
-    .flip-card-desc {
-        -webkit-line-clamp: 3;
-        font-size: 0.8125rem;
     }
     .flip-card-desc--4-lines {
         -webkit-line-clamp: 4;
-        max-height: 5.6em;
-    }
-    /* Featured card front: keep larger foreground text on mobile */
-    .hero-cards .flip-card:only-child .flip-card-body h3 {
-        font-size: 1.25rem;
-        color: hsl(var(--foreground));
-    }
-    .hero-cards .flip-card:only-child .flip-card-brand {
-        font-size: 0.875rem;
-        color: hsl(var(--card-body));
-    }
-    .hero-cards .flip-card:only-child .flip-card-tagline {
-        font-size: 1rem;
-        color: hsl(var(--primary) / 0.9);
+        max-height: none;
     }
     .hero-cards .flip-card:only-child .flip-card-desc {
         font-size: 1rem;
@@ -1274,9 +1247,12 @@ body {
         -webkit-line-clamp: 4;
     }
     .flip-card--see-more .flip-card-see-more {
-        bottom: 0.75rem;
+        top: 0.75rem;
         right: 1rem;
         font-size: 0.75rem;
+    }
+    .flip-card-footer {
+        padding: 0.75rem 1rem 1rem;
     }
     .flip-card-back {
         padding: 1rem;
@@ -1302,8 +1278,8 @@ body {
 
 @media (min-width: 640px) and (max-width: 899px) {
     .flip-card {
-        height: 380px;
-        min-height: 380px;
+        height: auto;
+        min-height: 420px;
     }
     .flip-card-body {
         padding: 1rem 1.25rem;
@@ -1319,13 +1295,14 @@ body {
 
 @media (min-width: 900px) and (max-width: 1023px) {
     .flip-card {
-        height: 400px;
-        min-height: 400px;
+        height: auto;
+        min-height: 420px;
     }
 }
 
 @media (min-width: 1024px) {
     .flip-card {
+        height: auto;
         min-height: 420px;
     }
 }
