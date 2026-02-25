@@ -29,6 +29,7 @@
     --content-max: 1225px;
     --container-padding-x: 32px;
     --section-padding-y: 3rem;
+    --section-margin-y: 5rem;
     /* Typography */
     --text-base: 1.125rem;
     --text-sm: 1rem;
@@ -62,6 +63,11 @@ body {
     font-feature-settings:
         'rlig' 1,
         'calt' 1;
+}
+
+section {
+    margin-top: var(--section-margin-y);
+    margin-bottom: var(--section-margin-y);
 }
 
 .container {
@@ -123,11 +129,12 @@ body {
 }
 
 /* ========== Hero ========== */
-.hero {
+section.hero {
     position: relative;
     overflow: hidden;
     padding-top: var(--section-padding-y);
     padding-bottom: var(--section-padding-y);
+    margin: 0;
 }
 
 .hero-animated-bg {
@@ -571,10 +578,18 @@ body {
     opacity: 0;
     animation: hero-cards-in 0.55s ease-out forwards;
 }
-.hero-cards .flip-card:nth-child(1) { animation-delay: 0.00s; }
-.hero-cards .flip-card:nth-child(2) { animation-delay: 0.10s; }
-.hero-cards .flip-card:nth-child(3) { animation-delay: 0.20s; }
-.hero-cards .flip-card:nth-child(4) { animation-delay: 0.30s; }
+.hero-cards .flip-card:nth-child(1) {
+    animation-delay: 0s;
+}
+.hero-cards .flip-card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+.hero-cards .flip-card:nth-child(3) {
+    animation-delay: 0.2s;
+}
+.hero-cards .flip-card:nth-child(4) {
+    animation-delay: 0.3s;
+}
 
 /* Single-product layout: featured image animates in with same timing */
 .hero-cards-layout:has(.flip-card:only-child) .hero-featured-image {
@@ -967,7 +982,9 @@ body {
     color: white;
     margin: 0;
     letter-spacing: -0.01em;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6), 0 0 1px rgba(0, 0, 0, 0.8);
+    text-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.6),
+        0 0 1px rgba(0, 0, 0, 0.8);
 }
 
 .flip-card-body {
@@ -1013,7 +1030,6 @@ body {
     font-size: 1.25rem;
     margin: 0;
 }
-
 
 /* Alternate flip card: small "See more" on front, flip on tap/click */
 .flip-card--see-more.flip-card--flipped .flip-card-inner {
@@ -1296,10 +1312,6 @@ body {
 }
 
 /* ========== Subscriber strip ========== */
-.subscriber-strip {
-    padding: var(--section-padding-y) 0;
-}
-
 .tcp-box.subscriber-strip-inner {
     position: relative;
     display: flex;
@@ -1401,6 +1413,10 @@ body {
     flex-shrink: 0;
 }
 
+section.subscriber-strip-section {
+    margin-top: var(--section-padding-y);
+}
+
 .subscriber-strip-label p {
     font-size: var(--text-sm);
     font-weight: 600;
@@ -1461,9 +1477,6 @@ body {
 }
 
 /* ========== Limited time deals ========== */
-.ltd-section {
-    padding: var(--section-padding-y) 0;
-}
 
 .ltd-header {
     margin-bottom: 2rem;
@@ -2251,13 +2264,15 @@ body {
         line-height: 1.2;
     }
     .subscriber-box-title .tcp-subscriber-icon {
-      display: none;
+        display: none;
     }
 }
 
 /* ========== Page disclaimer (footer) ========== */
-.page-disclaimer {
+section.page-disclaimer {
     padding: var(--section-padding-y);
+    margin-top: calc(var(--section-padding-y) * 2);
+    margin-bottom: 0;
     border-top: 1px solid hsl(var(--border) / 0.5);
     background: hsl(var(--background));
 }
@@ -2278,9 +2293,6 @@ p.page-disclaimer-text {
 }
 
 /* ========== Category grid ========== */
-.categories-section {
-    padding: var(--section-padding-y) 0;
-}
 
 .categories-title {
     text-align: center;
@@ -2298,6 +2310,42 @@ p.page-disclaimer-text {
 
 .categories-wrap {
     position: relative;
+}
+
+/* Category grid blurred with coming soon overlay */
+.categories-section-blur-wrap {
+    position: relative;
+}
+
+.categories-section-blurred {
+    filter: blur(5px);
+    pointer-events: none;
+    user-select: none;
+    opacity: 0.7;
+}
+
+.categories-coming-soon {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    pointer-events: none;
+}
+
+.tcp-box.categories-coming-soon-box {
+    pointer-events: auto;
+    flex-direction: column;
+    background-color: hsl(var(--background) / 0.5);
+}
+
+.categories-coming-soon-text {
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: hsl(var(--foreground) / 0.95);
 }
 
 .categories-grid {
