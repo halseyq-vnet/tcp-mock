@@ -852,6 +852,7 @@ body {
     box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     background: linear-gradient(to bottom, hsl(0 0% 100% / 0.05), hsl(0 0% 100% / 0.02));
+    cursor: pointer;
 }
 
 /* Only the top section flips; footer is always visible */
@@ -911,7 +912,6 @@ body {
 
 .hero-cards .flip-card:only-child {
     height: auto;
-    min-height: 420px;
 }
 
 .hero-cards .flip-card:only-child .flip-card-inner,
@@ -1009,30 +1009,11 @@ body {
     margin-top: 0.375rem;
 }
 
-.flip-card-desc {
-    font-size: 0.875rem;
-    line-height: 1.4;
-    color: hsl(var(--card-body));
-    margin-top: 1rem;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    /* overflow: hidden; */
-    text-overflow: ellipsis;
-    flex: 0 1 auto;
-    min-height: 0;
-    /* max-height: 4.2em; */
-    word-break: break-word;
-    overflow-wrap: break-word;
-}
-
 .flip-card h3 {
     font-size: 1.25rem;
     margin: 0;
 }
 
-.flip-card-back .cta-glass {
-    margin-top: 0.75rem;
-}
 
 /* Alternate flip card: small "See more" on front, flip on tap/click */
 .flip-card--see-more.flip-card--flipped .flip-card-inner {
@@ -1055,6 +1036,7 @@ body {
     display: none;
 }
 
+/* See more button: visible and usable only on touch devices */
 .flip-card-see-more {
     position: absolute;
     top: 0.75rem;
@@ -1069,19 +1051,19 @@ body {
     border-radius: 9999px;
     padding: 0.4rem 0.75rem;
     cursor: pointer;
-    display: inline-flex;
+    display: none;
     align-items: center;
     gap: 0.25em;
     letter-spacing: 0.02em;
     text-decoration: none;
-    transition: background 0.2s ease, color 0.2s ease;
     -webkit-tap-highlight-color: transparent;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
 
-.flip-card-see-more:hover {
-    background: hsl(220 25% 8% / 0.5);
-    color: hsl(16 90% 62%);
+@media (hover: none) and (pointer: coarse) {
+    .flip-card-see-more {
+        display: inline-flex;
+    }
 }
 
 .flip-card-see-more:focus-visible {
@@ -1116,7 +1098,7 @@ body {
 
 .cta-glass:hover {
     box-shadow: 0 6px 18px rgba(255, 106, 0, 0.18);
-    transform: translateY(-1px);
+    transform: translateY(-3px);
     filter: brightness(0.92);
 }
 
@@ -1127,6 +1109,17 @@ body {
 }
 
 .cta-glass:hover svg {
+    transform: translateX(4px);
+}
+
+/* Card hover: trigger View Deal button hover state so it's clear the whole card is clickable */
+.flip-card:hover .flip-card-footer .cta-glass {
+    box-shadow: 0 6px 18px rgba(255, 106, 0, 0.18);
+    transform: translateY(-3px);
+    filter: brightness(0.92);
+}
+
+.flip-card:hover .flip-card-footer .cta-glass svg {
     transform: translateX(4px);
 }
 
@@ -1279,31 +1272,9 @@ body {
 @media (min-width: 640px) and (max-width: 899px) {
     .flip-card {
         height: auto;
-        min-height: 420px;
     }
     .flip-card-body {
         padding: 1rem 1.25rem;
-    }
-    .flip-card-desc {
-        -webkit-line-clamp: 3;
-    }
-    .flip-card-desc--4-lines {
-        -webkit-line-clamp: 4;
-        max-height: 5.6em;
-    }
-}
-
-@media (min-width: 900px) and (max-width: 1023px) {
-    .flip-card {
-        height: auto;
-        min-height: 420px;
-    }
-}
-
-@media (min-width: 1024px) {
-    .flip-card {
-        height: auto;
-        min-height: 420px;
     }
 }
 

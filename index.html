@@ -584,9 +584,11 @@
                 document.querySelectorAll('.flip-card--see-more').forEach(function (card) {
                     var seeMore = card.querySelector('.flip-card-see-more');
                     var back = card.querySelector('.flip-card-back');
+                    var dealLink = card.querySelector('.flip-card-footer a[href]');
                     if (seeMore) {
                         seeMore.addEventListener('click', function (e) {
                             e.preventDefault();
+                            e.stopPropagation();
                             card.classList.toggle('flip-card--flipped');
                         });
                     }
@@ -595,6 +597,12 @@
                             card.classList.remove('flip-card--flipped');
                         });
                     }
+                    /* Whole card (except See more pill) links to View Deal */
+                    card.addEventListener('click', function (e) {
+                        if (seeMore && seeMore.contains(e.target)) return;
+                        e.preventDefault();
+                        if (dealLink) window.location = dealLink.href;
+                    });
                 });
 
                 // Dev/QA: right-click anywhere to open demo menu (1 / 2 / 3 / 4 product layouts)
