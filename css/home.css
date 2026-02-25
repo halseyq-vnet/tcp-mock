@@ -1115,7 +1115,7 @@ body {
 /* Card hover: trigger View Deal button hover state so it's clear the whole card is clickable */
 .flip-card:hover .flip-card-footer .cta-glass {
     box-shadow: 0 6px 18px rgba(255, 106, 0, 0.18);
-    transform: translateY(-3px);
+    transform: translateY(-2px);
     filter: brightness(0.92);
 }
 
